@@ -23,33 +23,6 @@ In this project, I work with a dataset of about 1.1 billion geotagged tweets pos
 To speed up long computation times, I use the [MapReduce](https://en.wikipedia.org/wiki/MapReduce) procedure to analyze these tweets.
 All computations from this data analysis project were performed on a remote server with 80 processors, allowing parallelization to improve computation time by up to a factor of 80.
 
-**MapReduce Runtime:**
-
-Let $n$ be the size of the dataset and $p$ be the number of processors used to do the computation.
-The simplest and most common scenario is that the map procedure takes time $O(n)$ and the reduce procedure takes time $O(1)$.
-(These will be the runtimes of our map/reduce procedures.)
-In this case, the overall runtime is $O(n/p + \log p)$.
-In the typical case when $p$ is much smaller than $n$,
-then the runtime simplifies to $O(n/p)$.
-This means that:
-1. doubling the amount of data will cause the analysis to take twice as long;
-1. doubling the number of processors will cause the analysis to take half as long;
-1. if you want to add more data and keep the processing time the same, then you need to add a proportional number of processors.
-
-More complex runtimes are possible.
-Merge sort over MapReduce is the classic example. 
-Here, mapping is equivalent to sorting and so takes time $O(n \log n)$,
-and reducing is a call to the `_merge` function that takes time $O(n)$.
-But they are both rare in practice and require careful math to describe,
-so we will ignore them.
-In the merge sort example, it requires $p=n$ processors just to reduce the runtime down to $O(n)$...
-that's a lot of additional computing power for very little gain,
-and so is impractical.
-
-It is currently not known which algorithms can be parallelized with MapReduce and which algorithms cannot be parallelized this way.
-Most computer scientists believe there are some algorithms which cannot be parallelized,
-but we don't yet have a proof that this is the case.
-
 ## Background Tasks
 
 Complete the following tasks to familiarize yourself with the sample code:
