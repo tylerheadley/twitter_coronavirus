@@ -1,12 +1,13 @@
-# Coronavirus twitter analysis
+# Coronavirus Hashtag Twitter Analysis
 
-You will scan all geotagged tweets sent in 2020 to monitor for the spread of the coronavirus on social media.
+In this project, I scan all geotagged tweets sent in 2020 to monitor for the spread of the coronavirus on social media.
 
-**Learning Objectives:**
+**Project Outcomes:**
 
-1. work with large scale datasets
-1. work with multilingual text
-1. use the MapReduce divide-and-conquer paradigm to create parallel code
+1. working with large scale datasets
+2. working with multilingual text
+3. using the MapReduce divide-and-conquer paradigm to create parallel code to run on a remote server
+4. practicing data analysis and visualization techniques
 
 ## Background
 
@@ -15,36 +16,12 @@ You will scan all geotagged tweets sent in 2020 to monitor for the spread of the
 Approximately 500 million tweets are sent everyday.
 Of those tweets, about 2% are *geotagged*.
 That is, the user's device includes location information about where the tweets were sent from.
-The lambda server's `/data/Twitter dataset` folder contains all geotagged tweets that were sent in 2020.
-In total, there are about 1.1 billion tweets in this dataset.
-
-The tweets are stored as follows.
-The tweets for each day are stored in a zip file `geoTwitterYY-MM-DD.zip`,
-and inside this zip file are 24 text files, one for each hour of the day.
-Each text file contains a single tweet per line in JSON format.
-JSON is a popular format for storing data that is closely related to python dictionaries.
-
-Vim is able to open compressed zip files,
-and I encourage you to use vim to explore the dataset.
-For example, run the command
-```
-$ vim /data/Twitter\ dataset/geoTwitter20-01-01.zip
-```
-Or you can get a "pretty printed" interface with a command like
-```
-$ unzip -p /data/Twitter\ dataset/geoTwitter20-01-01.zip | head -n1 | python3 -m json.tool | vim -
-```
+In this project, I work with a dataset of about 1.1 billion geotagged tweets posted in 2020.
 
 **About MapReduce:**
 
-You will follow the [MapReduce](https://en.wikipedia.org/wiki/MapReduce) procedure to analyze these tweets.
-MapReduce is a famous procedure for large scale parallel processing that is widely used in industry.
-It is a 3 step procedure summarized in the following image:
-
-<img src=mapreduce.png width=100% />
-
-I have already done the partition step for you (by splitting up the tweets into one file per day).
-You will have to do the map and reduce steps.
+To speed up long computation times, I use the [MapReduce](https://en.wikipedia.org/wiki/MapReduce) procedure to analyze these tweets.
+All computations from this data analysis project were performed on a remote server with 80 processors, allowing parallelization to improve computation time by up to a factor of 80.
 
 **MapReduce Runtime:**
 
