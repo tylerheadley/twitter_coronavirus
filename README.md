@@ -30,22 +30,25 @@ I created two different reduce programs which I use to create different visualiz
 ## Results
 
 <center>
-<img width='100%' src='data_visualization/top_10_\#coronavirus_by_country_chart.png' />
+<img width='100%' src=data_visualization/top_10_coronavirus_hashtags_by_country_chart.png />
 </center>
 
+<center>
+<img width='100%' src=data_visualization/top_10_coronavirus_hashtags_by_lang_chart.png />
+</center>
+
+<center>
+<img width='100%' src=data_visualization/top_10_코로나바이러스_hashtags_by_country_chart.png />
+</center>
+
+<center>
+<img width='100%' src=data_visualization/top_10_코로나바이러스_hashtags_by_lang_chart.png />
+</center>
 
 
 **Task 1: Run the mapper**
 
-> **HINT:**
-> You should thoroughly test your `map.py` file on a single day's worth of tweets and verify that you are getting reasonable results before moving on to this step.
 
-Create a shell script called `run_maps.sh`.
-This file will loop over each file in the dataset and run the `map.py` command on that file.
-Each call to `map.py` can take up to a day to finish, so you should use the `nohup` command to ensure the program continues to run after you disconnect and the `&` operator to ensure that all `map.py` commands run in parallel.
-
-> **HINT:**
-> Use the glob `*` to select only the tweets from 2020 and not all tweets.
 
 **Task 2: Reduce**
 
