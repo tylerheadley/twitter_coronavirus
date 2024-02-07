@@ -30,7 +30,7 @@ I created two different reduce programs which I use to create different visualiz
 ## Results
 
 <center>
-<img width='100%' src='data_visualization/top_10_#coronavirus_by_country_chart.png' />
+<img width='100%' src='data_visualization/top_10_\#coronavirus_by_country_chart.png' />
 </center>
 
 
