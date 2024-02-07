@@ -23,13 +23,15 @@ In this project, I work with a dataset of about 1.1 billion geotagged tweets pos
 To speed up long computation times, I use the [MapReduce](https://en.wikipedia.org/wiki/MapReduce) procedure to analyze these tweets.
 All computations from this data analysis project were performed on a remote server with 80 processors, allowing parallelization to improve computation time by up to a factor of 80.
 
-For the mapping step, I begin with the Twitter dataset split into 366 zip files for each day of the year (2020 was a leap year), with each zip file containing 24 text files for each hour of the day. The each line of the text file is one tweet stored in JSON format, containing different attributes about the tweet including the tweet contents, username and profile information, location, date, language, number of retweets, and more. Each of these zip files is processed separately by map.py, which allows for the computations to be performed in parallel. For each zip file, map.py counts the number of uses of certain hand-selected hashtags relevant to the COVID-19 pandemic, tracking both by language and by country. To perform this mapping on each of the 
+For the mapping step, I begin with the Twitter dataset split into 366 zip files for each day of the year (2020 was a leap year), with each zip file containing 24 text files for each hour of the day. The each line of the text file is one tweet stored in JSON format, containing different attributes about the tweet including the tweet contents, username and profile information, location, date, language, number of retweets, and more. Each of these zip files is processed separately by map.py, which allows for the computations to be performed in parallel. For each zip file, map.py counts the number of uses of certain hand-selected hashtags relevant to the COVID-19 pandemic, tracking both by language and by country. To perform this mapping on each of the zip files, I created a simple shell script run_maps.sh to handle calling map.py on each of the files in the background, and ran it with the nohup command to ensure the program would not be interrupted. My mapping step was able to finish running overnight.
 
 I created two different reduce programs which I use to create different visualizations of the twitter data. The first (reduce.py) simply sums the counts of each hashtag by language and country to get overall counts for the entire year of 2020. I use this program to create bar charts of which countries/languages tweeted certain hashtags (such as '#coronavirus') the most. The second (alternative_reduce.py) sums together all of the languages using each hashtag for that day, and outputs a list of usage counts for the desired hashtags for each day over the course of the year. I use this ouput to create a line plot tracking various hashtags' popularity over time.
 
 ## Results
 
-
+<center>
+<img width='100%' src=data_visualization/top_10_#coronavirus_by_country_chart.png />
+</center>
 
 
 
