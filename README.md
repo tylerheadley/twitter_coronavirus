@@ -14,7 +14,7 @@ In this project, I scan all geotagged tweets sent in 2020 to monitor for the spr
 **About the Data:**
 
 Approximately 500 million tweets are sent everyday.
-Of those tweets, about 2% are *geotagged*—-that is, the user's device includes location information about where the tweets were sent from.
+Of those tweets, about 2% are *geotagged*—that is, the user's device includes location information about where the tweets were sent from.
 In this project, I work with a dataset of about 1.1 billion geotagged tweets posted.
 
 **About MapReduce:**
