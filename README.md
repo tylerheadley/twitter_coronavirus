@@ -1,4 +1,4 @@
-# Coronavirus Hashtag Twitter Analysis
+# Coronavirus Twitter Hashtag Analysis
 
 In this project, I scan all geotagged tweets sent in 2020 to monitor for the spread of the coronavirus on social media.
 
