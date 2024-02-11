@@ -56,5 +56,5 @@ We can see from these graphs that the US was the top country using '#coronavirus
 For the other reduce I ran, I created a line chart of three hashtags' usage over the course of 2020: '#coronavirus', '#covid19', and '#virus'. We can see spikes in all three of these hashtags around 75 days into the year, which align with when quarantine began in the US in around mid-March.
 
 <center>
-    <img width='100%' src=data_visualization/covid_hashtags.png />
+    <img width='60%' src=data_visualization/covid_hashtags.png />
 </center>
