@@ -32,12 +32,12 @@ I ran `visualize.py` on the outputs from the reduce step by language and country
 
 <table border="0">
  <tr>
-     <td></td>
+     <td width='20%'></td>
      <td>Top 10 By Country</td>
      <td>Top 10 By Language</td>
  </tr>
  <tr>
-    <td><span>'#coronavirus'</span></td>
+    <td width='20%'><span>'#coronavirus'</span></td>
     <td>
         <img width='100%' src=data_visualization/top_10_coronavirus_hashtags_by_country_chart.png />
     </td>
@@ -45,7 +45,7 @@ I ran `visualize.py` on the outputs from the reduce step by language and country
 </td>
  </tr>
  <tr>
-    <td><span>'#코로나바이러스'</span></td>
+    <td width='20%'><span>'#코로나바이러스'</span></td>
     <td><img width='100%' src=data_visualization/top_10_코로나바이러스_hashtags_by_country_chart.png /></td>
     <td><img width='100%' src=data_visualization/top_10_코로나바이러스_hashtags_by_lang_chart.png /></td>
  </tr>
