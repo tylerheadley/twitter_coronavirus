@@ -6,8 +6,8 @@ import json
 import matplotlib
 matplotlib.use('Agg')  # Use the Agg backend for non-interactive mode
 import matplotlib.pyplot as plt
+from datetime import datetime
 from collections import defaultdict
-from datetime import datetime, timedelta
 
 # Command line args
 parser = argparse.ArgumentParser()
@@ -17,7 +17,7 @@ parser.add_argument('--output_path', required=True)
 args = parser.parse_args()
 
 # Initialize data structure to store tweet counts per hashtag per day
-data = defaultdict(lambda: defaultdict(int))
+data = defaultdict(list)
 
 # Load data from input paths
 for hashtag in args.hashtags:
@@ -25,25 +25,28 @@ for hashtag in args.hashtags:
         with open(path) as f:
             tmp = json.load(f)
             if hashtag in tmp:
-                for date_str, count in tmp[hashtag].items():
-                    date = datetime.strptime(date_str, "%Y-%m-%d")  # Assuming dates are in ISO format
-                    day_of_year = date.timetuple().tm_yday
-                    data[hashtag][day_of_year] += count
+                data[hashtag].append(sum(tmp[hashtag].values()))
+
+# Convert x-axis values from days of the year to dates in MM/DD or MM-DD format
+dates = [datetime.strptime(f'2024-01-01', '%Y-%m-%d').strftime('%m/%d') for _ in range(365)]
 
 # Create a line plot for each hashtag
 for hashtag in args.hashtags:
-    x_values = list(data[hashtag].keys())
-    y_values = list(data[hashtag].values())
+    x_values = dates[:len(data[hashtag])]
+    y_values = data[hashtag]
 
     plt.plot(x_values, y_values, label=f'{hashtag}')
 
 # Add labels and title
-plt.xlabel('Date (MM-DD)')
+plt.xlabel('Date (MM/DD)')
 plt.ylabel('Number of Tweets')
 plt.title('Tweet Counts by Hashtag Over the Year')
 
 # Add legend
 plt.legend()
+
+# Rotate x-axis labels for better readability
+plt.xticks(rotation=45)
 
 # Save the line plot to a PNG file
 plt.savefig(args.output_path)
